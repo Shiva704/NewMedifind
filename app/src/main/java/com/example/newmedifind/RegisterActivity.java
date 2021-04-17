@@ -33,6 +33,8 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
     private void intia(){
       Logoimage=findViewById(R.id.LogoImage);

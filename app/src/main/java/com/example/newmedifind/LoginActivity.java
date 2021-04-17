@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         Username= findViewById(R.id.username);
         Password= findViewById(R.id.password);
         Login_in= findViewById(R.id.Login_in);
-        Sign_up= findViewById(R.id.Sigh_up);
+        Sign_up= findViewById(R.id.Sign_up);
         Forgot_password= findViewById(R.id.Forgot_Password);
     }
 }
