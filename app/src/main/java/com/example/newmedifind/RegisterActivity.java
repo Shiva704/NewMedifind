@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -17,6 +19,8 @@ public class RegisterActivity extends AppCompatActivity {
     TextView Slogan;
     TextInputLayout Username, Phonenumber,Email,Password,Confirmpassword;
     Button Loginback;
+    FirebaseDatabase rootnode;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +33,19 @@ public class RegisterActivity extends AppCompatActivity {
         Loginback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
-                startActivity(intent);
+                rootnode=FirebaseDatabase.getInstance();
+                reference=rootnode.getReference("Coustmers");
+
+
+                String username= Username.getEditText().getText().toString();
+                String phonenumber= Phonenumber.getEditText().getText().toString();
+                String email= Email.getEditText().getText().toString();
+                String password= Password.getEditText().getText().toString();
+                String confirmpassword= Confirmpassword.getEditText().getText().toString();
+
+                UserHelperClass helperClass= new UserHelperClass( username,phonenumber,email,password,confirmpassword);
+
+                reference.child(username).setValue(helperClass);
             }
         });
 
@@ -40,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
       Logoimage=findViewById(R.id.LogoImage);
       Slogan=findViewById(R.id.Slogon);
      Username=findViewById(R.id.username);
-      Phonenumber=findViewById(R.id.Phonenumber);
+      Phonenumber=findViewById(R.id.phonenumber);
       Email=findViewById(R.id.email);
       Password=findViewById(R.id.password);
       Confirmpassword=findViewById(R.id.confirmpassword);

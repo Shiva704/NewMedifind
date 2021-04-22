@@ -35,6 +35,14 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Login_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1= new Intent(LoginActivity.this,HomeActivity.class);
+                startActivity(intent1);
+            }
+        });
     }
     private void intia(){
         Logoimage= findViewById(R.id.LogoImage);
