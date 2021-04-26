@@ -18,23 +18,23 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginActivity extends AppCompatActivity {
+public class StoreLogin extends AppCompatActivity {
 
     ImageView Logoimage;
     TextView Hello, declaration;
     TextInputLayout Username, Password;
-    Button Login_in , Sign_up, Forgot_password,Store;
+    Button Login_in , Forgot_password;
     FirebaseDatabase rootnode;
     DatabaseReference reference;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_store_login);
         intia();
-        Listeners();
+        Listner();
     }
+
 
     private Boolean validateName() {
         String val= Username.getEditText().getText().toString();
@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                         Password.setErrorEnabled(false);
 
                         String usernameFromDB = dataSnapshot.child(UsernameEnteredValue).child("username").getValue(String.class);
-                        Intent intent= new Intent(getApplicationContext(),HomeActivity.class);
+                        Intent intent= new Intent(getApplicationContext(),StoreHome.class);
                         intent.putExtra("username",usernameFromDB);
                         startActivity(intent);
                     }
@@ -107,16 +107,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
-    private void Listeners(){
-
-        Sign_up.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(LoginActivity.this,RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
+    private void Listner(){
 
         Login_in.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,26 +125,15 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
-        Store.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent= new Intent(LoginActivity.this,StoreLogin.class);
-                startActivity(intent);
-            }
-        });
     }
+
     private void intia(){
         Logoimage= findViewById(R.id.LogoImage);
         Hello= findViewById(R.id.Hello);
-       declaration= findViewById(R.id.IamgeText);
+        declaration= findViewById(R.id.IamgeText);
         Username= findViewById(R.id.username);
         Password= findViewById(R.id.password);
         Login_in= findViewById(R.id.Login_in);
-        Sign_up= findViewById(R.id.Sign_up);
         Forgot_password= findViewById(R.id.Forgot_Password);
-        Store=findViewById(R.id.Store);
     }
 }
-
