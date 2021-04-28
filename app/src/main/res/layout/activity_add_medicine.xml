@@ -5,26 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".RegisterActivity">
+    tools:context=".AddMedicine">
 
-    <ImageView
-        android:id="@+id/LogoImage"
-        android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:padding="5dp"
-        android:layout_height="177dp"
-        app:srcCompat="@drawable/logo" />
-
-    <TextView
-        android:id="@+id/Slogon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center_horizontal"
-        android:text="Sign_Up to Start New Journey"
-        android:textColor="@color/teal_700"
-        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,11 +14,38 @@
         android:orientation="vertical"
         android:layout_margin="10dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/username"
+        <TextView
+            android:id="@+id/meddicinedetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:text="Add Your Medicine Details"
+            android:textColor="@color/teal_700"
+            android:textSize="25dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Add Suitable ID"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="#9C9898">
+
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addmedicinename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Medicine Name"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -48,62 +57,60 @@
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phonenumber"
+            android:id="@+id/addmedicineprice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number"
+            android:hint="Medicine Price"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textColor="#9C9898">
 
             </com.google.android.material.textfield.TextInputEditText>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/email"
+            android:id="@+id/addcontents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email_ID"
+            android:hint="Contents"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:textColor="#9C9898">
 
             </com.google.android.material.textfield.TextInputEditText>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/password"
+            android:id="@+id/addstorename"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Select Password"
-            app:passwordToggleEnabled="true"
+            android:hint="Store Name"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:textColor="#9C9898">
 
             </com.google.android.material.textfield.TextInputEditText>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/confirmpassword"
+            android:id="@+id/addqunatity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Confirm Password"
-            app:passwordToggleEnabled="true"
+            android:hint="Quantity"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:textColor="#9C9898">
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -111,12 +118,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/Loginback"
+            android:id="@+id/addthemedicine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Register" />
+            android:text="ADD" />
 
 
 
