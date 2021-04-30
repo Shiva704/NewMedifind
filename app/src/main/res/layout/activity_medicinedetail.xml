@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MedicinedetailActivity">
+
+
+    <ImageView
+            android:id="@+id/imageViewmed"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/medicine_image" />
+
+    <TextView
+            android:id="@+id/forMedName"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/medicine_name"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewmed"
+            app:layout_constraintStart_toStartOf="@+id/imageViewmed"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewmed" />
+
+    <TextView
+            android:id="@+id/forMedPrice"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/price"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="@+id/forMedName"
+            app:layout_constraintStart_toStartOf="@+id/forMedName"
+            app:layout_constraintTop_toBottomOf="@+id/forMedName" />
+
+    <TextView
+            android:id="@+id/forMedStorename"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/storename"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="@+id/forMedPrice"
+            app:layout_constraintStart_toStartOf="@+id/forMedPrice"
+            app:layout_constraintTop_toBottomOf="@+id/forMedPrice" />
+
+    <TextView
+            android:id="@+id/forMedContent"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/content"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/forMedStorename"
+            app:layout_constraintStart_toStartOf="@+id/forMedStorename"
+            app:layout_constraintTop_toBottomOf="@+id/forMedStorename" />
+
+    <Button
+            android:id="@+id/Location"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="@string/store_location"
+            app:backgroundTint="#0B79CF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/forMedContent" />
+
+    <Button
+            android:id="@+id/PlaceOrder"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="@string/place_order"
+            app:backgroundTint="#0B79CF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/forMedContent"
+            app:layout_constraintStart_toEndOf="@+id/Location" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
