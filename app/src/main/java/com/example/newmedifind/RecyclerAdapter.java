@@ -1,12 +1,14 @@
 package com.example.newmedifind;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +33,16 @@ public class RecyclerAdapter extends FirebaseRecyclerAdapter<UserHelperClass,Rec
         holder.MedicinePrice.setText(model.getMedicineprice());
         holder.StoreName.setText(model.getStorename());
         holder.Quantity.setText(model.getQuantity());
+
+        holder.v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),MedicinedetailActivity.class);
+                intent.putExtra("medicinename",getRef(position).getKey());
+                v.getContext().startActivity(intent);
+
+            }
+        });
     }
 
     @NonNull
@@ -43,6 +55,7 @@ public class RecyclerAdapter extends FirebaseRecyclerAdapter<UserHelperClass,Rec
     class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView MedicineName,MedicinePrice,StoreName, Quantity;
+        View v;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -50,6 +63,9 @@ public class RecyclerAdapter extends FirebaseRecyclerAdapter<UserHelperClass,Rec
             MedicinePrice=itemView.findViewById(R.id.medicineprice);
             StoreName=itemView.findViewById(R.id.storename);
             Quantity=itemView.findViewById(R.id.quantity);
+            v=itemView;
+
         }
+
     }
 }
