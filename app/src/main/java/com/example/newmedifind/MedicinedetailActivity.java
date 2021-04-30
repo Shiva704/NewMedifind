@@ -44,7 +44,34 @@ public class MedicinedetailActivity extends AppCompatActivity {
 
         reference= FirebaseDatabase.getInstance().getReference().child("MedicineDetails");
 
+        String id=getIntent().getStringExtra("id");
+
+        reference.child(id).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.exists())
+                {
+                    String medicinename=snapshot.child("medicinename").getValue().toString();
+                    String medicineprice=snapshot.child("medicineprice").getValue().toString();
+                    String storename=snapshot.child("storename").getValue().toString();
+                    String contents=snapshot.child("contents").getValue().toString();
+
+                    med_name.setText(medicinename);
+                    med_price.setText("Rs.-"+medicineprice);
+                    med_storename.setText("Storename-"+storename);
+                    med_content.setText(contents);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         medicinename=getIntent().getStringExtra("medicinename");
+
         image_name=medicinename;
         tempimage=image_name+".jpg";
 
@@ -74,29 +101,6 @@ public class MedicinedetailActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        reference.child(medicinename).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                if(snapshot.exists())
-                {
-                    String medicinename=snapshot.child("medicinename").getValue().toString();
-                    String medicineprice=snapshot.child("medicineprice").getValue().toString();
-                    String storename=snapshot.child("storename").getValue().toString();
-                    String contents=snapshot.child("contents").getValue().toString();
-
-                    med_name.setText(medicinename);
-                    med_price.setText(medicineprice);
-                    med_storename.setText(storename);
-                    med_content.setText(contents);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
 
 
