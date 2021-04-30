@@ -30,15 +30,18 @@ public class RecyclerAdapter extends FirebaseRecyclerAdapter<UserHelperClass,Rec
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull UserHelperClass model) {
 
         holder.MedicineName.setText(model.getMedicinename());
-        holder.MedicinePrice.setText(model.getMedicineprice());
-        holder.StoreName.setText(model.getStorename());
-        holder.Quantity.setText(model.getQuantity());
+        holder.MedicinePrice.setText("Rs.-"+model.getMedicineprice());
+        holder.StoreName.setText("Storename-"+model.getStorename());
+        holder.Quantity.setText("Quantity-"+model.getQuantity());
+
+        String sum=model.getMedicinename();
 
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(),MedicinedetailActivity.class);
-                intent.putExtra("medicinename",getRef(position).getKey());
+                intent.putExtra("id",getRef(position).getKey());
+                intent.putExtra("medicinename",sum);
                 v.getContext().startActivity(intent);
 
             }
