@@ -7,6 +7,7 @@ import android.text.BoringLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
@@ -138,6 +139,7 @@ public class AddMedicine extends AppCompatActivity {
 
                 UserHelperClass helperClass= new UserHelperClass( medicinename,medicineprice,contents,storename,id,quantity);
                 reference.child(id).setValue(helperClass);
+                Toast.makeText(AddMedicine.this, "Medicine Added", Toast.LENGTH_SHORT).show();
 
             }
         });

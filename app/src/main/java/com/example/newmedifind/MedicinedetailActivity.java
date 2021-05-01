@@ -13,6 +13,11 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -22,22 +27,57 @@ import java.io.IOException;
 
 public class MedicinedetailActivity extends AppCompatActivity {
 
-    public String image_name,tempimage,m_name,m_price,m_storename,m_content;
+    public String image_name,tempimage,medicinename,medicineprice,storename,contents;
     public TextView med_name,med_price,med_content,med_storename;
     public Button location,order;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicinedetail);
 
-        m_name=getIntent().getStringExtra("Name");
-        image_name=m_name;
+        med_name=(TextView)findViewById(R.id.forMedName);
+        med_price=(TextView)findViewById(R.id.forMedPrice);
+        med_content=(TextView)findViewById(R.id.forMedContent);
+        med_storename=(TextView)findViewById(R.id.forMedStorename);
+
+        reference= FirebaseDatabase.getInstance().getReference().child("MedicineDetails");
+
+        String id=getIntent().getStringExtra("id");
+
+        reference.child(id).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.exists())
+                {
+                    String medicinename=snapshot.child("medicinename").getValue().toString();
+                    String medicineprice=snapshot.child("medicineprice").getValue().toString();
+                    String storename=snapshot.child("storename").getValue().toString();
+                    String contents=snapshot.child("contents").getValue().toString();
+
+                    med_name.setText(medicinename);
+                    med_price.setText("Rs.-"+medicineprice);
+                    med_storename.setText("Storename-"+storename);
+                    med_content.setText(contents);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        medicinename=getIntent().getStringExtra("medicinename");
+
+        image_name=medicinename;
         tempimage=image_name+".jpg";
 
-        m_price=getIntent().getStringExtra("Name");
-        m_storename=getIntent().getStringExtra("Name");
-        m_content=getIntent().getStringExtra("Name");
+        medicineprice=getIntent().getStringExtra("medicineprice");
+        storename=getIntent().getStringExtra("storename");
+        contents=getIntent().getStringExtra("contents");
 
         StorageReference mStorageReference = FirebaseStorage.getInstance().getReference().child(tempimage);
 
@@ -61,15 +101,10 @@ public class MedicinedetailActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        med_name=(TextView)findViewById(R.id.forMedName);
-        med_price=(TextView)findViewById(R.id.forMedPrice);
-        med_content=(TextView)findViewById(R.id.forMedContent);
-        med_storename=(TextView)findViewById(R.id.forMedStorename);
 
-        med_name.setText(m_name);
-        med_price.setText(m_price);
-        med_storename.setText(m_storename);
-        med_content.setText(m_content);
+
+
+
 
         location=(Button) findViewById(R.id.Location);
         order=(Button) findViewById(R.id.PlaceOrder);
