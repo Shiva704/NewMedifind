@@ -29,6 +29,32 @@
             android:text="MedicineName"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/quantext"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:text="Present Quantity"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/medicinequantity"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_margin="2dp"
+            android:text="Quantity"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/edit_icon"
+            android:layout_width="62dp"
+            android:layout_height="42dp"
+            app:srcCompat="@drawable/edit_black" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
