@@ -32,7 +32,11 @@ public class RecyclerEdit extends FirebaseRecyclerAdapter<UserHelperClass,Recycl
         String storename = model.getStorename();
         if (storename.equals("Apollo"))
         {
+            holder.v.setVisibility(View.VISIBLE);
             holder.MedicineName.setText(model.getMedicinename()+position);
+        }
+        else {
+            holder.v.setVisibility(View.GONE);
         }
 
 
@@ -49,10 +53,12 @@ public class RecyclerEdit extends FirebaseRecyclerAdapter<UserHelperClass,Recycl
     class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView MedicineName;
+        View v;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             MedicineName=itemView.findViewById(R.id.medicinename);
+            v=itemView;
 
         }
     }
