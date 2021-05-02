@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Newmedifind">
         <activity android:name=".MedicinedetailActivity"></activity>
-        <activity android:name=".AddMedicine"/>
+        <activity android:name=".EditQuantity"/>
+        <activity android:name=".AddMedicine" />
         <activity android:name=".SerachTab" />
         <activity android:name=".StoreHome" />
         <activity android:name=".StoreLogin" />

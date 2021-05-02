@@ -8,26 +8,26 @@
 
 
     <ImageView
-            android:id="@+id/imageViewmed"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/medicine_image" />
+        android:id="@+id/imageViewmed"
+        android:layout_width="247dp"
+        android:layout_height="184dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/medicine_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-            android:id="@+id/forMedName"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="medicine_name"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="@+id/imageViewmed"
-            app:layout_constraintStart_toStartOf="@+id/imageViewmed"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewmed" />
+        android:id="@+id/forMedName"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="medicine_name"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewmed"
+        app:layout_constraintStart_toStartOf="@+id/imageViewmed"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewmed" />
 
     <TextView
             android:id="@+id/forMedPrice"
@@ -63,25 +63,31 @@
             app:layout_constraintTop_toBottomOf="@+id/forMedStorename" />
 
     <Button
-            android:id="@+id/Location"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:text="store_location"
-            app:backgroundTint="#0B79CF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/forMedContent" />
+        android:id="@+id/Location"
+        android:layout_width="174dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        android:text="store_location"
+        app:backgroundTint="#0B79CF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/forMedContent"
+        app:layout_constraintTop_toBottomOf="@+id/forMedContent" />
 
     <Button
-            android:id="@+id/PlaceOrder"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:text="place_order"
-            app:backgroundTint="#0B79CF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/forMedContent"
-            app:layout_constraintStart_toEndOf="@+id/Location" />
+        android:id="@+id/PlaceOrder"
+        android:layout_width="141dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        android:text="place_order"
+        app:backgroundTint="#0B79CF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/forMedContent"
+        app:layout_constraintStart_toEndOf="@+id/Location"
+        app:layout_constraintTop_toBottomOf="@+id/forMedContent" />
 
 
 

@@ -17,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class StoreHome extends AppCompatActivity {
 
-    Button Add_medicine;
+    Button Add_medicine, Edit_quantity;
     TextView Display;
     DatabaseReference reference;
 
@@ -26,6 +26,7 @@ public class StoreHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_home);
 
+        Edit_quantity=findViewById(R.id.Edit_Quantity);
         Add_medicine= findViewById(R.id.Add_Medicine);
         Display= findViewById(R.id.welcome);
 
@@ -33,6 +34,14 @@ public class StoreHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StoreHome.this,AddMedicine.class);
+                startActivity(intent);
+            }
+        });
+
+        Edit_quantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StoreHome.this, EditQuantity.class);
                 startActivity(intent);
             }
         });
