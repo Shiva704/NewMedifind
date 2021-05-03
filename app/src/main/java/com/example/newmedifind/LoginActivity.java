@@ -146,13 +146,13 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void intia(){
         Logoimage= findViewById(R.id.LogoImage);
-        Hello= findViewById(R.id.Hello);
+        //Hello= findViewById(R.id.Hello);
        declaration= findViewById(R.id.IamgeText);
         Username= findViewById(R.id.username);
         Password= findViewById(R.id.password);
         Login_in= findViewById(R.id.Login_in);
         Sign_up= findViewById(R.id.Sign_up);
-        Forgot_password= findViewById(R.id.Forgot_Password);
+        //Forgot_password= findViewById(R.id.Forgot_Password);
         Store=findViewById(R.id.Store);
     }
 }
