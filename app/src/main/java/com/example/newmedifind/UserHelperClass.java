@@ -6,10 +6,16 @@ public class UserHelperClass {
 
     String medicinename,medicineprice,contents,storename,id,quantity;
 
+    String storeusername,storephonenumber,storename1,storepassword,location,id1;
+
+
+
 
     public UserHelperClass() {
 
     }
+
+
 
     public UserHelperClass(String medicinename, String medicineprice, String contents, String storename, String id, String quantity) {
         this.medicinename = medicinename;

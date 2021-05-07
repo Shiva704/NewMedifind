@@ -58,8 +58,8 @@ public class MedicinedetailActivity extends AppCompatActivity {
                     String contents=snapshot.child("contents").getValue().toString();
 
                     med_name.setText(medicinename);
-                    med_price.setText("Rs.-"+medicineprice);
-                    med_storename.setText("Storename-"+storename);
+                    med_price.setText("Rs."+medicineprice);
+                    med_storename.setText("Storename :"+ storename);
                     med_content.setText(contents);
                 }
             }

@@ -9,11 +9,12 @@
 
     <ImageView
         android:id="@+id/imageViewmed"
-        android:layout_width="247dp"
-        android:layout_height="184dp"
+        android:layout_width="205dp"
+        android:layout_height="161dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginLeft="85dp"
         android:layout_marginTop="40dp"
         android:contentDescription="@string/medicine_image"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="medicine_name"
+        android:textColor="#0C0C0C"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageViewmed"
@@ -30,26 +32,28 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewmed" />
 
     <TextView
-            android:id="@+id/forMedPrice"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="price"
-            android:textSize="26sp"
-            app:layout_constraintEnd_toEndOf="@+id/forMedName"
-            app:layout_constraintStart_toStartOf="@+id/forMedName"
-            app:layout_constraintTop_toBottomOf="@+id/forMedName" />
+        android:id="@+id/forMedPrice"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="price"
+        android:textColor="#0C0C0C"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="@+id/forMedName"
+        app:layout_constraintStart_toStartOf="@+id/forMedName"
+        app:layout_constraintTop_toBottomOf="@+id/forMedName" />
 
     <TextView
-            android:id="@+id/forMedStorename"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="storename"
-            android:textSize="26sp"
-            app:layout_constraintEnd_toEndOf="@+id/forMedPrice"
-            app:layout_constraintStart_toStartOf="@+id/forMedPrice"
-            app:layout_constraintTop_toBottomOf="@+id/forMedPrice" />
+        android:id="@+id/forMedStorename"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="storename"
+        android:textColor="#0C0C0C"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="@+id/forMedPrice"
+        app:layout_constraintStart_toStartOf="@+id/forMedPrice"
+        app:layout_constraintTop_toBottomOf="@+id/forMedPrice" />
 
     <TextView
             android:id="@+id/forMedContent"
@@ -89,6 +93,18 @@
         app:layout_constraintStart_toEndOf="@+id/Location"
         app:layout_constraintTop_toBottomOf="@+id/forMedContent" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="47dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintStart_toEndOf="@+id/imageViewmed"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

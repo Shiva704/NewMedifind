@@ -30,7 +30,7 @@ public class RecyclerAdapter extends FirebaseRecyclerAdapter<UserHelperClass,Rec
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull UserHelperClass model) {
 
         holder.MedicineName.setText(model.getMedicinename());
-        holder.MedicinePrice.setText("Rs.-"+model.getMedicineprice());
+        holder.MedicinePrice.setText(model.getMedicineprice());
         holder.StoreName.setText("Storename-"+model.getStorename());
         holder.Quantity.setText("Quantity-"+model.getQuantity());
 

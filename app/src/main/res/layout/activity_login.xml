@@ -99,10 +99,10 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="#000"
-            android:text="Login In "
+            android:text="Log In "
             android:textColor="@color/white"
             android:textStyle="bold"
-            app:backgroundTint="#0C0C0C" />
+            app:backgroundTint="#67B369" />
 
     </LinearLayout>
 
@@ -132,10 +132,12 @@
         android:text="Retailer? "
         android:textColor="#000"
         android:textStyle="bold"
+        app:backgroundTint="#0F9185"
         app:layout_constraintBaseline_toBaselineOf="@+id/Sign_up"
         app:layout_constraintEnd_toStartOf="@+id/Sign_up"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#FFFFFF" />
 
     <Button
         android:id="@+id/Sign_up"
@@ -153,6 +155,7 @@
         android:text="SIGH UP"
         android:textColor="#000"
         android:textStyle="bold"
+        app:backgroundTint="#0F9185"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/Store"
