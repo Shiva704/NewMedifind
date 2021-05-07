@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,9 +30,10 @@ import java.io.IOException;
 
 public class MedicinedetailActivity extends AppCompatActivity {
 
-    public String image_name,tempimage,medicinename,medicineprice,storename,contents;
+    public String image_name,tempimage,medicinename,medicineprice,storename,contents,medicinequantity;
     public TextView med_name,med_price,med_content,med_storename;
     public Button location,order;
+    public EditText et;
     DatabaseReference reference;
 
     @Override
@@ -45,6 +49,7 @@ public class MedicinedetailActivity extends AppCompatActivity {
         reference= FirebaseDatabase.getInstance().getReference().child("MedicineDetails");
 
         String id=getIntent().getStringExtra("id");
+        String username=LoginActivity.getUsername();
 
         reference.child(id).addValueEventListener(new ValueEventListener() {
             @Override
@@ -53,13 +58,15 @@ public class MedicinedetailActivity extends AppCompatActivity {
                 if(snapshot.exists())
                 {
                     String medicinename=snapshot.child("medicinename").getValue().toString();
-                    String medicineprice=snapshot.child("medicineprice").getValue().toString();
-                    String storename=snapshot.child("storename").getValue().toString();
+                    String medicinePrice=snapshot.child("medicineprice").getValue().toString();
+                    String storeName=snapshot.child("storename").getValue().toString();
                     String contents=snapshot.child("contents").getValue().toString();
 
+                    medicineprice=medicinePrice;
+                    storename=storeName;
                     med_name.setText(medicinename);
-                    med_price.setText("Rs."+medicineprice);
-                    med_storename.setText("Storename :"+ storename);
+                    med_price.setText("Rs."+medicinePrice);
+                    med_storename.setText("Storename :"+ storeName);
                     med_content.setText(contents);
                 }
             }
@@ -75,8 +82,8 @@ public class MedicinedetailActivity extends AppCompatActivity {
         image_name=medicinename;
         tempimage=image_name+".jpg";
 
-        medicineprice=getIntent().getStringExtra("medicineprice");
-        storename=getIntent().getStringExtra("storename");
+        //medicineprice=getIntent().getStringExtra("medicineprice");
+        //storename=getIntent().getStringExtra("storename");
         contents=getIntent().getStringExtra("contents");
 
         StorageReference mStorageReference = FirebaseStorage.getInstance().getReference().child(tempimage);
@@ -102,6 +109,16 @@ public class MedicinedetailActivity extends AppCompatActivity {
         }
 
 
+        EditText et = (EditText) findViewById(R.id.editText1);
+        et.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "15")});
+        et.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(MedicinedetailActivity.this,"Enter only number between 1 to 15",Toast.LENGTH_SHORT).show();
+            }
+
+        });
 
 
 
@@ -118,14 +135,16 @@ public class MedicinedetailActivity extends AppCompatActivity {
 //            }
 //        });
 //
-//        order.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent= new Intent(MedicinedetailsActivity.this,   .class);
-//
-//                startActivity(intent);
-//            }
-//        });
+        reference= FirebaseDatabase.getInstance().getReference("OrderSummary").child(username);
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                medicinequantity = et.getText().toString();
+
+                OrderAdder adder=new OrderAdder(medicinename,medicinequantity,medicineprice,storename);
+                reference.child(id).setValue(adder);
+            }
+        });
 
     }
 }

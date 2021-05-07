@@ -7,5 +7,7 @@
     <string name="content">Content</string>
     <string name="store_location">Store_location</string>
     <string name="place_order">Place_order</string>
+    <string name="enter_quantity">Enter quantity</string>
+    <string name="add_to_cart">add to cart</string>
 
 </resources>

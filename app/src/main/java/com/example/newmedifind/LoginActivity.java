@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static String user_name;
     ImageView Logoimage;
     TextView Hello, declaration;
     TextInputLayout Username, Password;
@@ -88,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                         String usernameFromDB = dataSnapshot.child(UsernameEnteredValue).child("username").getValue(String.class);
                         Intent intent= new Intent(getApplicationContext(),HomeActivity.class);
                         intent.putExtra("username",usernameFromDB);
+                        user_name=usernameFromDB;
                         startActivity(intent);
                     }
                     else {
@@ -154,6 +156,10 @@ public class LoginActivity extends AppCompatActivity {
         Sign_up= findViewById(R.id.Sign_up);
         //Forgot_password= findViewById(R.id.Forgot_Password);
         Store=findViewById(R.id.Store);
+    }
+
+    public static String getUsername(){
+        return user_name;
     }
 }
 

@@ -13,7 +13,7 @@
         android:layout_height="161dp"
         android:layout_marginStart="85dp"
         android:layout_marginLeft="85dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:contentDescription="@string/medicine_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +22,8 @@
         android:id="@+id/forMedName"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
+        android:background="#0DF6CF"
         android:text="medicine_name"
         android:textColor="#0C0C0C"
         android:textSize="30sp"
@@ -36,6 +37,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:background="#0DF6CF"
         android:text="price"
         android:textColor="#0C0C0C"
         android:textSize="26sp"
@@ -48,6 +50,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:background="#0DF6CF"
         android:text="storename"
         android:textColor="#0C0C0C"
         android:textSize="28sp"
@@ -56,15 +59,17 @@
         app:layout_constraintTop_toBottomOf="@+id/forMedPrice" />
 
     <TextView
-            android:id="@+id/forMedContent"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="content"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/forMedStorename"
-            app:layout_constraintStart_toStartOf="@+id/forMedStorename"
-            app:layout_constraintTop_toBottomOf="@+id/forMedStorename" />
+        android:id="@+id/forMedContent"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#0DF6CF"
+        android:text="content"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/forMedStorename"
+        app:layout_constraintStart_toStartOf="@+id/forMedStorename"
+        app:layout_constraintTop_toBottomOf="@+id/forMedStorename" />
 
     <Button
         android:id="@+id/Location"
@@ -72,26 +77,24 @@
         android:layout_height="53dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="50dp"
         android:text="store_location"
         app:backgroundTint="#0B79CF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/forMedContent"
-        app:layout_constraintTop_toBottomOf="@+id/forMedContent" />
+        app:layout_constraintStart_toStartOf="@+id/forMedContent" />
 
     <Button
         android:id="@+id/PlaceOrder"
         android:layout_width="141dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginBottom="50dp"
-        android:text="place_order"
+        android:text="@string/add_to_cart"
         app:backgroundTint="#0B79CF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/forMedContent"
-        app:layout_constraintStart_toEndOf="@+id/Location"
-        app:layout_constraintTop_toBottomOf="@+id/forMedContent" />
+        app:layout_constraintStart_toEndOf="@+id/Location" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -105,6 +108,35 @@
         app:layout_constraintStart_toEndOf="@+id/imageViewmed"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/username_text_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forMedContent">
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="228dp"
+            android:layout_marginRight="228dp"
+            android:hint="@string/enter_quantity"
+            android:inputType="number"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/forMedContent"
+            app:layout_constraintTop_toBottomOf="@+id/forMedContent"
+             />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
