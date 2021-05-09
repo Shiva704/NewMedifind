@@ -5,6 +5,7 @@ public class UserHelperClass {
     String username,phonenumber,email,password,confirmpassword;
 
     String medicinename,medicineprice,contents,storename,id,quantity;
+    String url;
 
     String storeusername,storephonenumber,storename1,storepassword,location,id1;
 
@@ -15,7 +16,9 @@ public class UserHelperClass {
 
     }
 
-
+    public UserHelperClass(String url) {
+        this.url = url;
+    }
 
     public UserHelperClass(String medicinename, String medicineprice, String contents, String storename, String id, String quantity) {
         this.medicinename = medicinename;
@@ -32,6 +35,14 @@ public class UserHelperClass {
         this.email = email;
         this.password = password;
         this.confirmpassword = confirmpassword;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getMedicinename() {

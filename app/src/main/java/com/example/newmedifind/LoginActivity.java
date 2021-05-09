@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -91,6 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                         intent.putExtra("username",usernameFromDB);
                         user_name=usernameFromDB;
                         startActivity(intent);
+                        
                     }
                     else {
                         Password.setError("wrong password");
@@ -101,6 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                     Username.requestFocus();
                 }
             }
+            
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -115,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
         Sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(LoginActivity.this,OrderSummary.class);
+                Intent intent= new Intent(LoginActivity.this,RegisterActivity.class);
                 startActivity(intent);
             }
         });

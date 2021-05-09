@@ -3,10 +3,12 @@ package com.example.newmedifind;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.InputFilter;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -78,6 +80,8 @@ public class MedicinedetailActivity extends AppCompatActivity {
         });
 
         medicinename=getIntent().getStringExtra("medicinename");
+        String passstore=getIntent().getStringExtra("storename");
+        //Log.i("value1",passstore);
 
         image_name=medicinename;
         tempimage=image_name+".jpg";
@@ -126,15 +130,15 @@ public class MedicinedetailActivity extends AppCompatActivity {
         location=(Button) findViewById(R.id.Location);
         order=(Button) findViewById(R.id.PlaceOrder);
 
-//        location.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent= new Intent(MedicinedetailsActivity.this,   .class);
-//
-//                startActivity(intent);
-//            }
-//        });
-//
+       location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MedicinedetailActivity.this, MapsActivity.class);
+                intent.putExtra("storename1",passstore);
+                startActivity(intent);
+            }
+        });
+
         reference= FirebaseDatabase.getInstance().getReference("OrderSummary").child(username);
         order.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +147,7 @@ public class MedicinedetailActivity extends AppCompatActivity {
 
                 OrderAdder adder=new OrderAdder(medicinename,medicinequantity,medicineprice,storename);
                 reference.child(id).setValue(adder);
+                Toast.makeText(MedicinedetailActivity.this, "Item added to Cart", Toast.LENGTH_SHORT).show();
             }
         });
 

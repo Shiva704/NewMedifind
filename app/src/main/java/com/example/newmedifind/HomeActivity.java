@@ -30,7 +30,7 @@ import java.io.IOException;
 
 public class HomeActivity extends AppCompatActivity {
 
-    ImageView Logoimage;
+    ImageView Logoimage,AddtoCart;
     ImageView Ad1, Ad2 , Ad3,Popular1,Popular2,Popular3,Popular4,Popular5,Popular6 ;
     TextView Greetings,Popular;
     TextInputLayout Search;
@@ -177,11 +177,13 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String medicinename=snapshot.child("medicinename").getValue().toString();
+                        String storename=snapshot.child("storename").getValue().toString();
                         String id= snapshot.getKey();
 
                         Intent intent=new Intent(HomeActivity.this,MedicinedetailActivity.class);
                         intent.putExtra("id",id);
                         intent.putExtra("medicinename",medicinename);
+                        intent.putExtra("storename",storename);
                         startActivity(intent);
                     }
 
@@ -201,11 +203,13 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String medicinename=snapshot.child("medicinename").getValue().toString();
+                        String storename=snapshot.child("storename").getValue().toString();
                         String id= snapshot.getKey();
 
                         Intent intent=new Intent(HomeActivity.this,MedicinedetailActivity.class);
                         intent.putExtra("id",id);
                         intent.putExtra("medicinename",medicinename);
+                        intent.putExtra("storename",storename);
                         startActivity(intent);
                     }
 
@@ -224,11 +228,13 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String medicinename=snapshot.child("medicinename").getValue().toString();
+                        String storename=snapshot.child("storename").getValue().toString();
                         String id= snapshot.getKey();
 
                         Intent intent=new Intent(HomeActivity.this,MedicinedetailActivity.class);
                         intent.putExtra("id",id);
                         intent.putExtra("medicinename",medicinename);
+                        intent.putExtra("storename",storename);
                         startActivity(intent);
                     }
 
@@ -248,11 +254,13 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String medicinename=snapshot.child("medicinename").getValue().toString();
+                        String storename=snapshot.child("storename").getValue().toString();
                         String id= snapshot.getKey();
 
                         Intent intent=new Intent(HomeActivity.this,MedicinedetailActivity.class);
                         intent.putExtra("id",id);
                         intent.putExtra("medicinename",medicinename);
+                        intent.putExtra("storename",storename);
                         startActivity(intent);
                     }
 
@@ -272,11 +280,13 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String medicinename=snapshot.child("medicinename").getValue().toString();
+                        String storename=snapshot.child("storename").getValue().toString();
                         String id= snapshot.getKey();
 
                         Intent intent=new Intent(HomeActivity.this,MedicinedetailActivity.class);
                         intent.putExtra("id",id);
                         intent.putExtra("medicinename",medicinename);
+                        intent.putExtra("storename",storename);
                         startActivity(intent);
                     }
 
@@ -296,11 +306,13 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String medicinename=snapshot.child("medicinename").getValue().toString();
+                        String storename=snapshot.child("storename").getValue().toString();
                         String id= snapshot.getKey();
 
                         Intent intent=new Intent(HomeActivity.this,MedicinedetailActivity.class);
                         intent.putExtra("id",id);
                         intent.putExtra("medicinename",medicinename);
+                        intent.putExtra("storename",storename);
                         startActivity(intent);
                     }
 
@@ -309,6 +321,14 @@ public class HomeActivity extends AppCompatActivity {
 
                     }
                 });
+            }
+        });
+
+        AddtoCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HomeActivity.this,OrderSummary.class);
+                startActivity(intent);
             }
         });
 
@@ -333,6 +353,7 @@ public class HomeActivity extends AppCompatActivity {
         Popular4=findViewById(R.id.imageView7);
         Popular5=findViewById(R.id.imageView8);
         Popular6=findViewById(R.id.imageView9);
+        AddtoCart=findViewById(R.id.addtocart);
 
     }
 }

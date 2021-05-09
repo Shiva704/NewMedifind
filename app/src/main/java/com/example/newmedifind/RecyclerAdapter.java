@@ -34,6 +34,7 @@ public class RecyclerAdapter extends FirebaseRecyclerAdapter<UserHelperClass,Rec
         holder.StoreName.setText("Storename-"+model.getStorename());
         holder.Quantity.setText("Quantity-"+model.getQuantity());
 
+        String sum1=model.getStorename();
         String sum=model.getMedicinename();
 
         holder.v.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +43,7 @@ public class RecyclerAdapter extends FirebaseRecyclerAdapter<UserHelperClass,Rec
                 Intent intent = new Intent(v.getContext(),MedicinedetailActivity.class);
                 intent.putExtra("id",getRef(position).getKey());
                 intent.putExtra("medicinename",sum);
+                intent.putExtra("storename",sum1);
                 v.getContext().startActivity(intent);
 
             }

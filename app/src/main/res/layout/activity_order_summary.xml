@@ -18,23 +18,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <androidx.recyclerview.widget.RecyclerView
+        android:background="@color/light_grey"
         android:id="@+id/orderrecyclerView"
         android:layout_width="0dp"
         android:layout_height="400dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderSlogan">
+        app:layout_constraintTop_toBottomOf="@+id/orderSlogan"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
     </androidx.recyclerview.widget.RecyclerView>
+
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="215dp"
         android:orientation="vertical"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orderrecyclerView">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black" />
 
         <TextView
             android:id="@+id/pricedetails"
@@ -44,11 +55,17 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:layout_marginLeft="10dp"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_weight="1">
+
 
             <TextView
                 android:id="@+id/price"
@@ -94,7 +111,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="2"
                 android:drawableStart="@drawable/money"
-                android:text="-3,289"
+                android:text="-200"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:drawableLeft="@drawable/money" />
 
@@ -124,6 +141,10 @@
                 android:layout_weight="2"/>
 
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#555454"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -152,10 +173,16 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#555454"/>
+
         <TextView
+            android:id="@+id/statement"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="You will save Rs.3,289 on this order"
+            android:text="You will save Rs.200 on this order"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>

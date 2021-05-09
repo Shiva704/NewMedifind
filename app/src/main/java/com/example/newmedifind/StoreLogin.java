@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class StoreLogin extends AppCompatActivity {
 
+    private static String user_name;
     ImageView Logoimage;
     TextView Hello, declaration;
     TextInputLayout Username, Password;
@@ -66,7 +67,7 @@ public class StoreLogin extends AppCompatActivity {
     private  void isUser() {
         String UsernameEnteredValue= Username.getEditText().getText().toString().trim();
         String PasswordEnteredValue= Password.getEditText().getText().toString().trim();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Coustmers");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("StoreDetails");
 
         Query CheckUser = reference.orderByChild("username").equalTo(UsernameEnteredValue);
 
@@ -88,6 +89,7 @@ public class StoreLogin extends AppCompatActivity {
                         String usernameFromDB = dataSnapshot.child(UsernameEnteredValue).child("username").getValue(String.class);
                         Intent intent= new Intent(getApplicationContext(),StoreHome.class);
                         intent.putExtra("username",usernameFromDB);
+                        user_name=usernameFromDB;
                         startActivity(intent);
                     }
                     else {
@@ -135,5 +137,9 @@ public class StoreLogin extends AppCompatActivity {
         Password= findViewById(R.id.password);
         Login_in= findViewById(R.id.Login_in);
         //Forgot_password= findViewById(R.id.Forgot_Password);
+    }
+
+    public static String getUsername(){
+        return user_name;
     }
 }

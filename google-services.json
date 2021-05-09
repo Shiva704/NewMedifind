@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "138382519672",
+    "firebase_url": "https://newmedifind-default-rtdb.firebaseio.com",
+    "project_id": "newmedifind",
+    "storage_bucket": "newmedifind.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138382519672:android:1ce69d888f02ebe96dec8d",
+        "android_client_info": {
+          "package_name": "com.example.newmedifind"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138382519672-3v4vmcj99qjvtpt85ropd7g9o9reb8d3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOd08_k3C1SfgB_bndBD7EjiWQx03a7zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138382519672-3v4vmcj99qjvtpt85ropd7g9o9reb8d3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
