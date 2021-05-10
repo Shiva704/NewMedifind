@@ -143,16 +143,11 @@ public class MedicinedetailActivity extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(et.length()==0){
-                    et.setError("enter Quantity");
-                }
-                else {
-                    medicinequantity = et.getText().toString();
+                medicinequantity = et.getText().toString();
 
-                    OrderAdder adder = new OrderAdder(medicinename, medicinequantity, medicineprice, storename);
-                    reference.child(id).setValue(adder);
-                    Toast.makeText(MedicinedetailActivity.this, "Item added to Cart", Toast.LENGTH_SHORT).show();
-                }
+                OrderAdder adder=new OrderAdder(medicinename,medicinequantity,medicineprice,storename);
+                reference.child(id).setValue(adder);
+                Toast.makeText(MedicinedetailActivity.this, "Item added to Cart", Toast.LENGTH_SHORT).show();
             }
         });
 
