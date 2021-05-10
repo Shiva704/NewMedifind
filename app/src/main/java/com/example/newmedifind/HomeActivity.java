@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -27,10 +29,13 @@ import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
     ImageView Logoimage,AddtoCart;
+    ImageSlider imageSlider;
     ImageView Ad1, Ad2 , Ad3,Popular1,Popular2,Popular3,Popular4,Popular5,Popular6 ;
     TextView Greetings,Popular;
     TextInputLayout Search;
@@ -44,6 +49,13 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         intia();
         Listeners();
+
+        List<SlideModel> slideModelList=new ArrayList<>();
+        slideModelList.add(new SlideModel("https://i-cf65ch.gskstatic.com/content/dam/cf-consumer-healthcare/panadol/en_in/homepagecarousel/Crocin-banner_1680x600.png?auto=format"));
+        slideModelList.add(new SlideModel("https://penji.co/wp-content/uploads/2019/01/7.-Philips-MakeLifeBetter-Campaign.jpeg"));
+        slideModelList.add(new SlideModel("https://image.prepladder.com/content/IX9iYuUd3vZa5Ziw4Y841589794426.png"));
+        slideModelList.add(new SlideModel("https://serviceware-se.com/fileadmin/user_upload/healthcare-graphic.png"));
+        imageSlider.setImageList(slideModelList,true);
 
         Intent intent = getIntent();
         String UsernameDisplay = "Greetings"+" "+ intent.getStringExtra("username");
@@ -344,9 +356,10 @@ public class HomeActivity extends AppCompatActivity {
         Greetings=findViewById(R.id.greeting);
         Search=findViewById(R.id.search_bar);
         Search1=findViewById(R.id.search_bar1);
-        Ad1=findViewById(R.id.imageView1);
-        Ad2=findViewById(R.id.imageView2);
-        Ad3=findViewById(R.id.imageView3);
+        imageSlider=findViewById(R.id.scrollView2);
+        //Ad1=findViewById(R.id.imageView1);
+        //Ad2=findViewById(R.id.imageView2);
+        //Ad3=findViewById(R.id.imageView3);
         Popular1=findViewById(R.id.imageView4);
         Popular2=findViewById(R.id.imageView5);
         Popular3=findViewById(R.id.imageView6);
