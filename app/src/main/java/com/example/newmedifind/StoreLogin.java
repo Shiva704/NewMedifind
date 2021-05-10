@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class StoreLogin extends AppCompatActivity {
 
-    private static String user_name;
+   //private static String user_name;
     ImageView Logoimage;
     TextView Hello, declaration;
     TextInputLayout Username, Password;
@@ -69,27 +70,29 @@ public class StoreLogin extends AppCompatActivity {
         String PasswordEnteredValue= Password.getEditText().getText().toString().trim();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("StoreDetails");
 
-        Query CheckUser = reference.orderByChild("username").equalTo(UsernameEnteredValue);
+        Query CheckUser = reference.orderByChild("id1").equalTo(UsernameEnteredValue);
 
         CheckUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                Log.i("value",String.valueOf(dataSnapshot));
 
                 if(dataSnapshot.exists()){
 
                     Username.setError(null);
                     Username.setErrorEnabled(false);
 
-                    String PasswordFromDB = dataSnapshot.child(UsernameEnteredValue).child("password").getValue(String.class);
+                    String PasswordFromDB = dataSnapshot.child(UsernameEnteredValue).child("storepassword").getValue(String.class);
 
                     if(PasswordFromDB.equals(PasswordEnteredValue)){
                         Password.setError(null);
                         Password.setErrorEnabled(false);
 
-                        String usernameFromDB = dataSnapshot.child(UsernameEnteredValue).child("username").getValue(String.class);
+                        String usernameFromDB = dataSnapshot.child(UsernameEnteredValue).child("storeusername").getValue(String.class);
                         Intent intent= new Intent(getApplicationContext(),StoreHome.class);
                         intent.putExtra("username",usernameFromDB);
-                        user_name=usernameFromDB;
+                       // user_name=usernameFromDB;
                         startActivity(intent);
                     }
                     else {
@@ -139,7 +142,7 @@ public class StoreLogin extends AppCompatActivity {
         //Forgot_password= findViewById(R.id.Forgot_Password);
     }
 
-    public static String getUsername(){
-        return user_name;
-    }
+   // public static String getUsername(){
+       // return user_name;
+   // }
 }
