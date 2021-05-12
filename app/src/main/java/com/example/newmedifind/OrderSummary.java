@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -36,6 +39,8 @@ public class OrderSummary extends AppCompatActivity {
 
         intia();
 
+        LoadingDialog loadingDialog=new LoadingDialog(OrderSummary.this);
+
         String username = LoginActivity.getUsername();
 
         reference = FirebaseDatabase.getInstance().getReference("OrderSummary").child(username);
@@ -59,12 +64,10 @@ public class OrderSummary extends AppCompatActivity {
                     String med_price = String.valueOf(dataSnapshot1.child("med_price").getValue());
 
                     String med_quantity = String.valueOf(dataSnapshot1.child("med_quantity").getValue());
-                    //sum = sum + (Float.parseFloat(med_price) * Float.parseFloat(med_quantity));
+                    sum = sum + (Float.parseFloat(med_price) * Float.parseFloat(med_quantity));
 
-                    sum = sum + (Float.parseFloat(med_price)*Float.parseFloat(med_quantity));
-                    //Log.i("sum", String.valueOf(sum));
+                   // sum = sum + Float.parseFloat(med_price);
 
-                    //Log.i("med_quantity", med_quantity);
                     //Log.i("med_price",med_price);
                 }
                 BigDecimal price = round(sum, 2);
@@ -91,6 +94,24 @@ public class OrderSummary extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        Placeorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadingDialog.startLoadingdialog();
+                Handler handler=new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismissDialog();
+                    }
+                },5000);
+
+
+                Intent intent=new Intent(OrderSummary.this,OrderPlaced.class);
+                startActivity(intent);
             }
         });
 

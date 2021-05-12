@@ -87,10 +87,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_weight="2"
-                    android:drawableStart="@drawable/money"
                     android:text="amount"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:drawableLeft="@drawable/money" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             </LinearLayout>
 
@@ -115,10 +113,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_weight="2"
-                    android:drawableStart="@drawable/money"
                     android:text="-200"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:drawableLeft="@drawable/money" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             </LinearLayout>
             <LinearLayout
@@ -171,10 +167,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_weight="2"
-                    android:drawableStart="@drawable/money"
                     android:text="TAmount"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:drawableLeft="@drawable/money" />
+                    />
 
             </LinearLayout>
 

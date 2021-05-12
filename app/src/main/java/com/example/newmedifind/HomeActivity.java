@@ -37,11 +37,13 @@ public class HomeActivity extends AppCompatActivity {
     ImageView Logoimage,AddtoCart;
     ImageSlider imageSlider;
     ImageView Ad1, Ad2 , Ad3,Popular1,Popular2,Popular3,Popular4,Popular5,Popular6 ;
-    TextView Greetings,Popular;
+    TextView Greetings,Popular,Count;
     TextInputLayout Search;
     TextInputEditText Search1;
     Button Loginback;
     StorageReference storageReference;
+    DatabaseReference reference1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +60,36 @@ public class HomeActivity extends AppCompatActivity {
         imageSlider.setImageList(slideModelList,true);
 
         Intent intent = getIntent();
-        String UsernameDisplay = "Greetings"+" "+ intent.getStringExtra("username");
+        String username1=intent.getStringExtra("username");
+        String UsernameDisplay = "Greetings"+" "+ username1;
         Greetings.setText(UsernameDisplay);
 
+
+
+
+        reference1=FirebaseDatabase.getInstance().getReference("OrderSummary").child(username1);
+        reference1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int sum=0;
+                if(snapshot.exists()) {
+                    sum = (int) snapshot.getChildrenCount();
+                    Count.setText(Integer.toString(sum));
+                }
+                else {
+
+                    Count.setText("0");
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+
+            }
+        });
 
 
         storageReference= FirebaseStorage.getInstance().getReference().child("Crocine Advanced Tablet.jpg");
@@ -372,6 +401,6 @@ public class HomeActivity extends AppCompatActivity {
         Popular5=findViewById(R.id.imageView8);
         Popular6=findViewById(R.id.imageView9);
         AddtoCart=findViewById(R.id.addtocart);
-
+        Count=findViewById(R.id.count);
     }
 }
