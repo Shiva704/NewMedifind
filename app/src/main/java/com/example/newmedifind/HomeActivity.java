@@ -172,6 +172,9 @@ public class HomeActivity extends AppCompatActivity {
     private void Listeners(){
 
 
+
+
+
         Search1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -339,7 +342,9 @@ public class HomeActivity extends AppCompatActivity {
         AddtoCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent_prev = getIntent();
                 Intent intent=new Intent(HomeActivity.this,OrderSummary.class);
+                intent.putExtra("user", intent_prev.getStringExtra("username"));
                 startActivity(intent);
             }
         });

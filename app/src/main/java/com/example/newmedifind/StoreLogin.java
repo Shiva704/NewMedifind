@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class StoreLogin extends AppCompatActivity {
 
-   //private static String user_name;
+   private static String user_name;
     ImageView Logoimage;
     TextView Hello, declaration;
     TextInputLayout Username, Password;
@@ -92,7 +92,7 @@ public class StoreLogin extends AppCompatActivity {
                         String usernameFromDB = dataSnapshot.child(UsernameEnteredValue).child("storeusername").getValue(String.class);
                         Intent intent= new Intent(getApplicationContext(),StoreHome.class);
                         intent.putExtra("username",usernameFromDB);
-                       // user_name=usernameFromDB;
+                        user_name=dataSnapshot.child(UsernameEnteredValue).child("storename1").getValue(String.class);
                         startActivity(intent);
                     }
                     else {
@@ -142,7 +142,7 @@ public class StoreLogin extends AppCompatActivity {
         //Forgot_password= findViewById(R.id.Forgot_Password);
     }
 
-   // public static String getUsername(){
-       // return user_name;
-   // }
+    public static String getUsername(){
+        return user_name;
+    }
 }

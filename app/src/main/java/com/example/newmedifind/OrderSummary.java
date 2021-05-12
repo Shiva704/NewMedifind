@@ -57,7 +57,12 @@ public class OrderSummary extends AppCompatActivity {
                 float sum = 0;
                 for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
                     String med_price = String.valueOf(dataSnapshot1.child("med_price").getValue());
+
+                    //String med_quantity = String.valueOf(dataSnapshot1.child("med_quantity").getValue());
+                    //sum = sum + (Float.parseFloat(med_price) * Float.parseFloat(med_quantity));
+
                     sum = sum + Float.parseFloat(med_price);
+
                     //Log.i("med_price",med_price);
                 }
                 BigDecimal price = round(sum, 2);

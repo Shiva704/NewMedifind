@@ -39,7 +39,7 @@ public class RecyclerEdit extends FirebaseRecyclerAdapter<UserHelperClass,Recycl
     protected void onBindViewHolder(@NonNull ViewHolder holder, final int position, @NonNull UserHelperClass model) {
 
         String storename = model.getStorename();
-        if (storename.equals("Apollo"))
+        if (storename.equalsIgnoreCase(StoreLogin.getUsername()))
         {
             holder.v.setVisibility(View.VISIBLE);
             holder.MedicineName.setText(model.getMedicinename());
